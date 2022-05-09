@@ -1,0 +1,26 @@
+.list {
+  background-color: rgb(2, 48, 85);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px solid #000;
+  padding: 20px;
+  border-radius: 4px;
+}
+
+.item {
+  background-color: #fff;
+  border: 1px solid #000;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.contact {
+  margin-right: 30px;
+}
+
+.btn {
+}

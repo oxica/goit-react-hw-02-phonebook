@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import shortid from 'shortid';
-// import s from './App.module.css';
+import s from './App.module.css';
 import ContactList from './ContactList/ContactList';
 import ContactForm from './ContactForm';
 import Filter from './Filter';
@@ -77,7 +77,7 @@ class App extends Component {
         <ContactForm onSubmit={this.addContact} />
 
         <h2>Contacts</h2>
-        <div>All contacts: {contacts.length}</div>
+        <div className={s.allContacts}>All contacts: {contacts.length}</div>
         <Filter value={filter} onChange={this.changeFilter} />
         <ContactList
           contacts={visibleContacts}

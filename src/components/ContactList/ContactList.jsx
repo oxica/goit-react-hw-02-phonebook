@@ -1,12 +1,18 @@
+import s from './ContactList.module.css';
+
 const ContactList = ({ contacts, onDeleteContact }) => (
-  <ul>
+  <ul className={s.list}>
     {contacts.map(({ id, name, number }) => (
-      <li key={id}>
-        <p>
+      <li key={id} className={s.item}>
+        <p className={s.contact}>
           {name}............
           {number}
         </p>
-        <button type="submit" onClick={() => onDeleteContact(id)}>
+        <button
+          className={s.btn}
+          type="submit"
+          onClick={() => onDeleteContact(id)}
+        >
           Delete
         </button>
       </li>
