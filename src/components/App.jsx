@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import shortid from 'shortid';
 // import s from './App.module.css';
 import ContactList from './ContactList/ContactList';
+import ContactForm from './ContactForm';
 
 class App extends Component {
   state = {
@@ -10,6 +12,17 @@ class App extends Component {
       { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
       { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
+  };
+
+  addTodo = ({ name, number }) => {
+    const contact = {
+      id: shortid.generate(),
+      name: name,
+      number: number,
+    };
+    this.setState(prevState => ({
+      contacts: [contact, ...prevState.contacts],
+    }));
   };
 
   deleteContact = todoId => {
@@ -35,6 +48,8 @@ class App extends Component {
         }}
       >
         <h1>Phonebook</h1>
+        <ContactForm onSubmit={this.addTodo} />
+        <h2>Contacts</h2>
         <div>All contacts: {contacts.length}</div>
         <ContactList contacts={contacts} onDeleteContact={this.deleteContact} />
       </div>
