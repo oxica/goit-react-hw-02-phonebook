@@ -1,13 +1,17 @@
-import React from 'react';
-
-const ContactList = ({ contacts }) => {
+const ContactList = ({ contacts, onDeleteContact }) => (
   <ul>
     {contacts.map(({ id, name, number }) => (
       <li key={id}>
-        <p>{name}</p>
+        <p>
+          {name}............
+          {number}
+        </p>
+        <button type="submit" onClick={() => onDeleteContact(id)}>
+          Delete
+        </button>
       </li>
     ))}
-  </ul>;
-};
+  </ul>
+);
 
 export default ContactList;

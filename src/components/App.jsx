@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import s from './App.module.css';
-import ContactList from './ContactList';
+import ContactList from './ContactList/ContactList';
 
 class App extends Component {
   state = {
@@ -12,8 +12,15 @@ class App extends Component {
     ],
   };
 
+  deleteContact = todoId => {
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(contact => contact.id !== todoId),
+    }));
+  };
+
   render() {
     const { contacts } = this.state;
+
     return (
       <div
         style={{
@@ -23,12 +30,13 @@ class App extends Component {
           alignItems: 'center',
           flexDirection: 'column',
           fontSize: 18,
-          textTransform: 'uppercase',
+          // textTransform: 'uppercase',
           color: '#010101',
         }}
       >
         <h1>Phonebook</h1>
-        <ContactList contacts={contacts} />
+        <div>All contacts: {contacts.length}</div>
+        <ContactList contacts={contacts} onDeleteContact={this.deleteContact} />
       </div>
     );
   }
