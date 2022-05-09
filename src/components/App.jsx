@@ -17,13 +17,16 @@ class App extends Component {
   };
 
   addContact = ({ name, number }) => {
+    const normalizedName = name.toLowerCase();
+
     let isAdded = false;
     this.state.contacts.forEach(el => {
-      if (el.name === name) {
+      if (el.name.toLowerCase() === normalizedName) {
         alert(`${name} is already in contacts`);
         isAdded = true;
       }
     });
+
     if (isAdded) {
       return;
     }
@@ -33,7 +36,7 @@ class App extends Component {
       number: number,
     };
     this.setState(prevState => ({
-      contacts: [contact, ...prevState.contacts],
+      contacts: [...prevState.contacts, contact],
     }));
   };
 
@@ -63,7 +66,7 @@ class App extends Component {
     return (
       <div
         style={{
-          height: '100vh',
+          // height: '100vh',
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
