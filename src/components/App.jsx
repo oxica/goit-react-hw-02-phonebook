@@ -76,7 +76,7 @@ class App extends Component {
         <h1>Phonebook</h1>
         <ContactForm onSubmit={this.addContact} />
 
-        <h2>Contacts</h2>
+        <h2 className={s.titleContacts}>Contacts</h2>
         <div className={s.allContacts}>All contacts: {contacts.length}</div>
         <Filter value={filter} onChange={this.changeFilter} />
         <ContactList
